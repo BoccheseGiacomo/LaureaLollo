@@ -25,6 +25,7 @@ for question, (options, correct_answer) in quiz_questions.items():
 # Renderizzare l'espressione LaTeX separatamente
 st.latex(r"(\pi^2 - 3e^2 + 2g \cdot \epsilon) \cdot \epsilon + g^2")
 
+
 # Bottone per inviare le risposte
 if st.button("Verifica"):
     # Controlla se tutte le domande hanno una risposta e che la risposta non sia il placeholder
@@ -34,12 +35,13 @@ if st.button("Verifica"):
         score = sum(user_answers[q] == correct_answer for q, (options, correct_answer) in quiz_questions.items())
         total_questions = len(quiz_questions)
         percentage = round((score / total_questions) * 100)  # Calcolo della percentuale arrotondata all'unità
-        
-        # Personalizzazione del messaggio in base al punteggio
-# Personalizzazione del messaggio in base al punteggio con colorazione
-    if percentage < 40:
-        st.markdown(f'<p style="background-color:red;color:white;padding:10px;font-size:20px;">Il tuo punteggio è {percentage}%. Sei peggio di un matematico!</p>', unsafe_allow_html=True)
-    elif 40 <= percentage < 70:
-        st.markdown(f'<p style="background-color:yellow;color:black;padding:10px;font-size:20px;">Il tuo punteggio è {percentage}%. Si vede che sei un fisico</p>', unsafe_allow_html=True)
+
+        # Personalizzazione del messaggio in base al punteggio con evidenziatura
+        if percentage < 40:
+            st.markdown(f'<p style="background-color:red;color:white;padding:10px;font-size:20px;">Il tuo punteggio è {percentage}%. Sei peggio di un matematico!</p>', unsafe_allow_html=True)
+        elif 40 <= percentage < 70:
+            st.markdown(f'<p style="background-color:yellow;color:black;padding:10px;font-size:20px;">Il tuo punteggio è {percentage}%. Si vede che sei un fisico</p>', unsafe_allow_html=True)
+        else:
+            st.markdown(f'<p style="background-color:green;color:white;padding:10px;font-size:20px;">Il tuo punteggio è {percentage}%. Bravo, sei un ingegnere!</p>', unsafe_allow_html=True)
     else:
-        st.markdown(f'<p style="background-color:green;color:white;padding:10px;font-size:20px;">Il tuo punteggio è {percentage}%. Bravo, sei un ingegnere!</p>', unsafe_allow_html=True)
+        st.error("Devi rispondere a tutte le domande.")
