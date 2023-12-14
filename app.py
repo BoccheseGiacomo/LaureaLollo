@@ -7,7 +7,7 @@ st.title("Quiz per Lollo: Barcollo ma non mollo")
 quiz_questions = {
     "π =": (["Scegli una risposta", "3.14", "π", "3", "e^2"], "3"),
     "g =": (["Scegli una risposta", "9.81", "g", "e^2"], "e^2"),
-    "Come si pronuncia la parola \"GAUGE\"?": (["Scegli una risposta", "gheig", "goge", "gauge"], "gheig"),
+    "Come si pronuncia la parola \"GAUGE\"?": (["Scegli una risposta", "gheig", "goge", "gauge"], "gauge"),
     "ε (epsilon) uguale:": (["Scegli una risposta", "0", "0.01", "1"], "0"),
     "Risolvi il seguente problema: Fratta lancia da un grattacielo nel vuoto una piuma e un mattone, cosa tocca terra per primo?": (
         ["Scegli una risposta", "La piuma", "Il mattone", "Nessuno perché nel vuoto non c'è gravità", "Fratta perché è un mattone"], "Fratta perché è un mattone"),
@@ -23,7 +23,7 @@ for question, (options, correct_answer) in quiz_questions.items():
     user_answers[question] = st.radio(question, options, index=0)
 
 # Renderizzare l'espressione LaTeX separatamente
-st.latex(r"(\pi^2 - 3e^2 + 2g \cdot \epsilon) \cdot \epsilon + g^2")
+st.latex(r"(\pi^2 - 3e^2 + 2ge) \cdot \epsilon + g^2")
 
 
 # Bottone per inviare le risposte
