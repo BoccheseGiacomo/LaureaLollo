@@ -23,7 +23,7 @@ for question, (options, correct_answer) in quiz_questions.items():
     user_answers[question] = st.radio(question, options, index=0)
 
 # Renderizzare l'espressione LaTeX separatamente
-st.latex(r"(\pi^2 - 3e^2 + 2ge) \cdot \epsilon + g^2")
+st.latex(r"(\pi^2 - 3e^2 + 2ge) \cdot \varepsilon + g^2")
 
 
 # Bottone per inviare le risposte
